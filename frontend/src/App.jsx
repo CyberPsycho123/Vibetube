@@ -20,7 +20,7 @@ import config from './config'
 function App() {
   const GoogleAuthWapper = () => {
     return (
-      <GoogleOAuthProvider clientId='425454948845-7pabqpe5pgfqbg8oo2m96lhvm7pdvu9b.apps.googleusercontent.com'>
+      <GoogleOAuthProvider clientId='1060914793989-ffhlhjob453iq5aiucjfejf6s3jafnt7.apps.googleusercontent.com'>
         <Login />
       </GoogleOAuthProvider>
     )
