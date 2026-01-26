@@ -1,0 +1,333 @@
+/* --- 1. Global Reset & Variables --- */
+:root {
+  /* Colors */
+  --primary-color: #7940b9;
+  --accent-color: #ff11ff;
+  --text-color: #ffffff;
+  --bg-dark: #000000;
+  --dropdown-bg: #f5f5f5;
+  --border-radius: 5px;
+
+  /* Spacing */
+  --spacing-sm: 8px;
+  --spacing-md: 15px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* --- 2. Navbar Structure (Desktop Base) --- */
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  background-color: var(--primary-color);
+  padding: var(--spacing-md) 25px;
+  position: sticky;
+  top: 0;
+  /* FIX: Set Navbar Z-Index high enough (e.g., 1300) so it's ABOVE the overlay. 
+    The original was 1100, which was too low.
+  */
+  z-index: 1300;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.login-button{
+  background-color: blueviolet;
+  border: 2px solid white;
+  padding: 10px;
+  font-size: 16px;
+  width: 120px;
+  color: white;
+  transition-duration: 0.5s;
+  cursor: pointer;
+}
+.login-button:hover{
+  background-color: black;
+}
+
+.profile-icon{
+  width: 50px;
+  height: 50px;
+  border-radius:50% ;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-color);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.logo span {
+  color: var(--accent-color);
+}
+
+/* Menu Toggle: Always visible, positioned at the start */
+.menu-toggle {
+  font-size: 1.5rem;
+  /* Reduced size for icon */
+  color: var(--text-color);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  display: flex;
+  /* Ensures button is always there */
+  align-items: center;
+}
+
+/* --- 3. Search Bar --- */
+.searchbar {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.searchbar input {
+  flex-grow: 1;
+  height: 40px;
+  font-size: 1rem;
+  padding: 0 10px;
+  outline: none;
+  border: none;
+  border-radius: var(--border-radius) 0 0 var(--border-radius);
+  min-width: 150px;
+}
+
+.searchbar .icon {
+  width: 50px;
+  height: 40px;
+  cursor: pointer;
+  background-color:rgb(196, 174, 215);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  transition: background-color 0.2s ease;
+}
+
+.searchbar .icon:hover {
+  background-color: rgb(154, 103, 199);
+}
+
+/* --- 4. Profile Dropdown --- */
+.profiles {
+  position: relative;
+  margin-left: auto;
+}
+
+.profile-toggle-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 2.2rem;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+}
+
+/* Dropdown visibility styles (no change) */
+.profile-dropdown {
+  /* ... (dropdown styles remain here) ... */
+  width: 250px;
+  border-radius: var(--border-radius);
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 10px;
+  padding: 10px 0;
+  background-color: var(--dropdown-bg);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+.profile-dropdown.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.profile-dropdown p {
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.profile-dropdown p {
+  color: var(--primary-color);
+}
+
+.profile-dropdown .signout {
+  color: #c93030;
+}
+
+.profile-dropdown p:hover {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+.profile-dropdown .signout:hover {
+  background-color: #c93030;
+  color: var(--text-color);
+}
+
+
+/* --- 5. Sidebar & Overlay (No Change) --- */
+/* ... (Sidebar, Overlay, and Keyframes styles remain here) ... */
+/* --- 5. Sidebar & Overlay --- */
+.sidebar {
+  position: fixed;
+  top: 0;
+  visibility: hidden;
+  /* FIX: Ensure width is set explicitly and is not overridden */
+  width: 240px !important;
+  /* Use !important temporarily for testing, then remove if possible */
+  height: 100vh;
+  background: white;
+  padding: 25px 20px;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
+  transition: left 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  z-index: 1400;
+}
+
+.sidebar .close-btn{
+  font-weight: bold;
+  font-size: 25px;
+  cursor: pointer;
+  background: none;
+  border: none;
+
+}
+
+.sidebar ul{
+  padding-top: 10px;
+}
+.sidebar ul li{
+  background-color: rgb(190, 163, 214);
+  margin-top: 10px;
+  list-style: none;
+  padding: 10px;
+  color: white;
+  font-weight: 500;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.sidebar ul li:hover{
+  background-color: blueviolet;
+}
+
+/* ... rest of sidebar, overlay, and keyframes */
+
+.sidebar.show {
+  transform: translateX(0);
+  visibility: visible;
+
+  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  /* FIX: Overlay must be between the Navbar (1300) and Sidebar (1400). 
+    The original was 1150.
+  */
+  z-index: 1350;
+}
+
+.overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.search-mobile-toggle{
+  display: flex;
+  visibility: hidden;
+  order: 3;
+}
+
+/* --- 6. Mobile Responsiveness --- */
+/* --- 6. Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    /* Ensure vertical alignment */
+    justify-content: space-between;
+    /* Space out the items */
+    gap: 10px;
+  }
+
+  .logo {
+    /* Center it slightly, but allow items on the sides */
+    margin-right: auto;
+    /* Push content away */
+    font-size: 1.6rem;
+  }
+
+
+  /* Search Bar Transformation: Hide the full bar on mobile */
+  .searchbar {
+    display: none;
+    /* ✅ Hide the full desktop search bar */
+  }
+
+  /* 🔥 NEW: Show the mobile search icon */
+
+
+  .search-mobile-toggle{
+    display: flex;
+    background:none;
+    visibility: visible;
+    order: 3;
+    border: none;
+    margin-right: 30px;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+  }
+
+  /* Adjust the Profile container's position */
+  .profiles {
+    margin-left: 0;
+    /* Remove the desktop auto margin */
+    order: 4;
+  }
+  .navb{
+    background-color: red;
+
+  }
+  .navb input{
+    width: 100%;
+    padding: 10px;
+    height: 40px;
+  }
+}
+
+/* Even smaller screens where 4 elements might be too wide */
+@media (max-width: 340px) {
+  /* You might want to hide the profile icon and move it into the sidebar instead */
+  /* .profiles { display: none; } */
+}

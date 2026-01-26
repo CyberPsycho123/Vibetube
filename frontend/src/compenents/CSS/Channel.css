@@ -1,0 +1,157 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Roboto, Arial, sans-serif;
+}
+
+body {
+  background: #fff;
+  color: #000;
+}
+
+.channel-page {
+  max-width: 1300px;
+  margin: auto;
+  padding: 36px;
+
+}
+
+/* HEADER */
+.channel-header {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.channel-logo {
+  width: 120px;
+  height: 120px;
+  background: #ddd;
+  border-radius: 50%;
+}
+
+.channel-info h1 {
+  font-size: 26px;
+}
+
+.channel-info p {
+  color: #606060;
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+.channel-info span {
+  display: block;
+  font-size: 14px;
+  color: #606060;
+  max-width: 700px;
+  margin: 6px 0;
+}
+
+.subscribe-btn {
+  margin-top: 10px;
+  background-color: blueviolet;
+  font-weight: bold;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* TABS */
+.tabs {
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 16px;
+}
+
+.tabs span {
+  padding: 12px 0;
+  cursor: pointer;
+  color: #606060;
+}
+
+.tabs .active {
+  color: #000;
+  border-bottom: 2px solid #000;
+}
+
+/* FILTERS */
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filters button {
+  border: none;
+  background: #eee;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.filters .active {
+  background: #000;
+  color: #fff;
+}
+
+/* VIDEO GRID */
+.video-grind {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-left: 0px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.video-card {
+  cursor: pointer;
+}
+
+.thumb {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.thumb img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.duration {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  font-size: 12px;
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+
+.video-card h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 8px 0 4px;
+  word-break: break-all;
+  width: 350px;
+}
+
+.video-card p {
+  font-size: 12px;
+  color: #606060;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .channel-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}

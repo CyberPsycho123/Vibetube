@@ -1,0 +1,78 @@
+.subs-page {
+  padding: 16px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.subs-page h2 {
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+
+/* LIST */
+.subs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ROW */
+.subs-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background-color: #f2f2f2;
+  border: 1px solid grey;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.subs-row:hover {
+  background: rgb(240, 225, 255);
+}
+
+/* LEFT SIDE */
+.left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.left img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}
+
+.channel-name {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* BUTTON */
+.subscribed-btn {
+  background: #e5e5e5;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 18px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 600px) {
+  .subs-page {
+    padding: 12px;
+  }
+
+  .channel-name {
+    font-size: 14px;
+  }
+
+  .subscribed-btn {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+}

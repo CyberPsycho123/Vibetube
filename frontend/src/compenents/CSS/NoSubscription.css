@@ -1,0 +1,465 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #f9f9f9;
+  color: #030303;
+}
+
+.ns-container {
+  width: 100%;
+  background: #f9f9f9;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.ns-content-wrapper {
+  padding: 32px 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.ns-empty-state {
+  text-align: center;
+  background: #fff;
+  border-radius: 12px;
+  padding: 80px 60px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  max-width: 600px;
+  width: 100%;
+}
+
+.ns-empty-icon {
+  font-size: 120px;
+  margin-bottom: 32px;
+  opacity: 0.8;
+  animation: ns-float 3s ease-in-out infinite;
+}
+
+@keyframes ns-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.ns-empty-text {
+  font-size: 32px;
+  color: #030303;
+  margin-bottom: 16px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.ns-empty-subtext {
+  font-size: 16px;
+  color: #606060;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.ns-empty-description {
+  font-size: 14px;
+  color: #909090;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.ns-action-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ns-btn {
+  padding: 12px 32px;
+  border: none;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: capitalize;
+}
+
+.ns-btn-secondary {
+  background: #f2f2f2;
+  color: #030303;
+  border: 1px solid #e5e5e5;
+}
+
+.ns-btn-secondary:hover {
+  background: #e8e8e8;
+  border-color: #d0d0d0;
+  transform: translateY(-2px);
+}
+
+/* Large Desktop */
+@media (max-width: 1600px) {
+  .ns-header {
+    padding: 28px 36px;
+  }
+
+  .ns-header h1 {
+    font-size: 28px;
+  }
+
+  .ns-content-wrapper {
+    padding: 28px 36px;
+  }
+
+  .ns-empty-state {
+    padding: 70px 50px;
+  }
+
+  .ns-empty-text {
+    font-size: 28px;
+  }
+}
+
+/* Desktop */
+@media (max-width: 1200px) {
+  .ns-header {
+    padding: 24px 32px;
+  }
+
+  .ns-header h1 {
+    font-size: 26px;
+  }
+
+  .ns-content-wrapper {
+    padding: 24px 32px;
+  }
+
+  .ns-empty-state {
+    padding: 60px 40px;
+    max-width: 500px;
+  }
+
+  .ns-empty-text {
+    font-size: 26px;
+    margin-bottom: 14px;
+  }
+
+  .ns-empty-subtext {
+    font-size: 15px;
+    margin-bottom: 28px;
+  }
+
+  .ns-empty-icon {
+    font-size: 100px;
+    margin-bottom: 28px;
+  }
+
+  .ns-suggestions-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+  }
+}
+
+/* Tablet Large */
+@media (max-width: 992px) {
+  .ns-header {
+    padding: 20px 28px;
+  }
+
+  .ns-header h1 {
+    font-size: 24px;
+  }
+
+  .ns-content-wrapper {
+    padding: 20px 28px;
+  }
+
+  .ns-empty-state {
+    padding: 50px 36px;
+    max-width: 450px;
+  }
+
+  .ns-empty-text {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  .ns-empty-subtext {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .ns-empty-description {
+    font-size: 13px;
+    margin-bottom: 32px;
+  }
+
+  .ns-empty-icon {
+    font-size: 90px;
+    margin-bottom: 24px;
+  }
+
+  .ns-btn {
+    padding: 10px 28px;
+    font-size: 13px;
+  }
+
+  .ns-suggestions-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+  }
+
+  .ns-suggestion-card {
+    padding: 12px;
+  }
+
+  .ns-suggestion-icon {
+    font-size: 28px;
+  }
+
+  .ns-suggestion-text {
+    font-size: 12px;
+  }
+}
+
+/* Tablet Medium */
+@media (max-width: 768px) {
+  .ns-header {
+    padding: 16px 20px;
+  }
+
+  .ns-header h1 {
+    font-size: 22px;
+  }
+
+  .ns-content-wrapper {
+    padding: 16px 20px;
+  }
+
+  .ns-empty-state {
+    padding: 40px 30px;
+    max-width: 400px;
+    border-radius: 10px;
+  }
+
+  .ns-empty-text {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .ns-empty-subtext {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
+  .ns-empty-description {
+    font-size: 12px;
+    margin-bottom: 24px;
+  }
+
+  .ns-empty-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+  }
+
+  .ns-btn {
+    padding: 9px 24px;
+    font-size: 12px;
+  }
+
+  .ns-action-buttons {
+    gap: 12px;
+  }
+
+  .ns-suggestions-section {
+    margin-top: 40px;
+    padding-top: 30px;
+  }
+
+  .ns-suggestions-title {
+    font-size: 16px;
+    margin-bottom: 18px;
+  }
+
+  .ns-suggestions-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+  }
+
+  .ns-suggestion-card {
+    padding: 10px;
+    border-radius: 6px;
+  }
+
+  .ns-suggestion-icon {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  .ns-suggestion-text {
+    font-size: 11px;
+  }
+}
+
+/* Mobile Large */
+@media (max-width: 600px) {
+  .ns-header {
+    padding: 12px 16px;
+  }
+
+  .ns-header h1 {
+    font-size: 20px;
+  }
+
+  .ns-content-wrapper {
+    padding: 12px 16px;
+  }
+
+  .ns-empty-state {
+    padding: 30px 24px;
+    max-width: 100%;
+    border-radius: 8px;
+  }
+
+  .ns-empty-text {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .ns-empty-subtext {
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+
+  .ns-empty-description {
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+
+  .ns-empty-icon {
+    font-size: 70px;
+    margin-bottom: 16px;
+  }
+
+  .ns-btn {
+    padding: 8px 20px;
+    font-size: 11px;
+  }
+
+  .ns-action-buttons {
+    gap: 10px;
+  }
+
+  .ns-suggestions-section {
+    margin-top: 30px;
+    padding-top: 24px;
+  }
+
+  .ns-suggestions-title {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+
+  .ns-suggestions-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .ns-suggestion-card {
+    padding: 12px;
+  }
+
+  .ns-suggestion-icon {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  .ns-suggestion-text {
+    font-size: 11px;
+  }
+}
+
+/* Mobile Small */
+@media (max-width: 480px) {
+  .ns-header {
+    padding: 10px 12px;
+  }
+
+  .ns-header h1 {
+    font-size: 18px;
+  }
+
+  .ns-content-wrapper {
+    padding: 10px 12px;
+  }
+
+  .ns-empty-state {
+    padding: 24px 16px;
+  }
+
+  .ns-empty-text {
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+
+  .ns-empty-subtext {
+    font-size: 12px;
+    margin-bottom: 14px;
+  }
+
+  .ns-empty-description {
+    font-size: 11px;
+    margin-bottom: 16px;
+  }
+
+  .ns-empty-icon {
+    font-size: 60px;
+    margin-bottom: 12px;
+  }
+
+  .ns-btn {
+    padding: 8px 18px;
+    font-size: 10px;
+  }
+
+  .ns-action-buttons {
+    gap: 8px;
+  }
+
+  .ns-suggestions-section {
+    margin-top: 20px;
+    padding-top: 16px;
+  }
+
+  .ns-suggestions-title {
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+
+  .ns-suggestions-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .ns-suggestion-card {
+    padding: 10px;
+  }
+
+  .ns-suggestion-icon {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+
+  .ns-suggestion-text {
+    font-size: 10px;
+  }
+}

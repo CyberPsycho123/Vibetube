@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Roboto, Arial, sans-serif;
+}
+
+body {
+  background: #f9f9f9;
+}
+
+.admin-page {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 16px;
+}
+
+/* HEADER */
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.admin-header h1 {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.upload-btn {
+  background: blueviolet;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* TABLE */
+.video-table {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table-head,
+.table-row {
+  display: grid;
+  grid-template-columns: 3fr 1.2fr 1.2fr 1fr 1.5fr;
+  align-items: center;
+  padding: 14px 16px;
+}
+
+.table-head {
+  background: #f1f1f1;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.table-row {
+  border-top: 1px solid #eee;
+}
+
+.video-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.video-cell img {
+  width: 120px;
+  height: 68px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.video-cell p {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* STATUS */
+.status {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.status.public {
+  color: green;
+}
+
+.status.private {
+  color: #999;
+}
+
+/* ACTIONS */
+.actions button {
+  border: none;
+  background: #eee;
+  padding: 6px 10px;
+  border-radius: 4px;
+  margin-right: 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.actions .delete {
+  background: rgb(194, 169, 217);
+  color: blueviolet;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .table-head {
+    display: none;
+  }
+
+  .table-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .actions {
+    justify-self: flex-start;
+  }
+}

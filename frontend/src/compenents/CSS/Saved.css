@@ -1,0 +1,538 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #f9f9f9;
+  color: #030303;
+}
+
+.container {
+  width: 100%;
+  background: #f9f9f9;
+  min-height: 100vh;
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+}
+
+.header {
+  padding: 32px 40px;
+  background: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.header h1 {
+  font-size: 32px;
+  font-weight: 600;
+  color: #030303;
+  letter-spacing: -0.5px;
+}
+
+.content-wrapper {
+  padding: 32px 40px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.videos-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.video-row {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  align-items: start;
+  width: 100%;
+}
+
+.video-row:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.thumbnail-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f0f0f0 0%, #e8e8e8 100%);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.thumbnail-wrapper:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transform: scale(1.02);
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 64px;
+}
+
+.play-button {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #030303;
+  font-size: 24px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.thumbnail-wrapper:hover .play-button {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.duration-badge {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  backdrop-filter: blur(4px);
+}
+
+.video-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 0;
+}
+
+.title-section {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+  align-items: flex-start;
+}
+
+.video-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #030303;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-word;
+  flex: 1;
+}
+
+.video-title:hover {
+  color: #065fd4;
+}
+
+.more-options {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #606060;
+  font-size: 24px;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+}
+
+.more-options:hover {
+  background: #f2f2f2;
+  color: #030303;
+  transform: scale(1.1);
+}
+
+.metadata {
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+  color: #606060;
+}
+
+.channel-name {
+  color: #606060;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.video-stats {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 13px;
+  color: #606060;
+}
+
+.stat-dot {
+  width: 4px;
+  height: 4px;
+  background: #606060;
+  border-radius: 50%;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 120px 40px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.empty-icon {
+  font-size: 80px;
+  margin-bottom: 24px;
+}
+
+.empty-text {
+  font-size: 24px;
+  color: #030303;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.empty-subtext {
+  font-size: 16px;
+  color: #606060;
+}
+
+/* Large Desktop */
+@media (max-width: 1600px) {
+  .content-wrapper {
+    padding: 28px 36px;
+  }
+
+  .header {
+    padding: 28px 36px;
+  }
+
+  .header h1 {
+    font-size: 28px;
+  }
+
+  .video-row {
+    grid-template-columns: 240px 1fr;
+    gap: 20px;
+    padding: 18px;
+    margin-bottom: 28px;
+  }
+}
+
+/* Desktop */
+@media (max-width: 1200px) {
+  .content-wrapper {
+    padding: 24px 32px;
+    width: 100%;
+  }
+
+  .header {
+    padding: 24px 32px;
+  }
+
+  .header h1 {
+    font-size: 26px;
+  }
+
+  .video-row {
+    grid-template-columns: 220px 1fr;
+    gap: 18px;
+    padding: 16px;
+    margin-bottom: 24px;
+  }
+
+  .video-title {
+    font-size: 15px;
+  }
+
+  .metadata {
+    font-size: 13px;
+  }
+
+  .channel-name {
+    font-size: 13px;
+  }
+
+  .thumbnail-wrapper {
+    border-radius: 10px;
+  }
+
+  .duration-badge {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+}
+
+/* Tablet Large */
+@media (max-width: 992px) {
+  .content-wrapper {
+    padding: 20px 28px;
+    max-width: 100%;
+  }
+
+  .header {
+    padding: 20px 28px;
+  }
+
+  .header h1 {
+    font-size: 24px;
+  }
+
+  .video-row {
+    grid-template-columns: 200px 1fr;
+    gap: 16px;
+    padding: 14px;
+    margin-bottom: 20px;
+  }
+
+  .video-title {
+    font-size: 14px;
+  }
+
+  .metadata {
+    font-size: 20px;
+  }
+
+  .more-options {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
+
+  .play-button {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+}
+
+/* Tablet Medium */
+@media (max-width: 768px) {
+  .content-wrapper {
+    padding: 16px 20px;
+  }
+
+  .header {
+    padding: 16px 20px;
+  }
+
+  .header h1 {
+    font-size: 22px;
+  }
+
+  .video-row {
+    grid-template-columns: 160px 1fr;
+    gap: 14px;
+    padding: 12px;
+    margin-bottom: 16px;
+  }
+
+  .video-title {
+    font-size: 13px;
+  }
+
+  .metadata {
+    font-size: 20px;
+  }
+
+  .channel-name {
+    font-size: 11px;
+  }
+
+  .video-stats {
+    font-size: 11px;
+  }
+
+  .more-options {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
+
+  .play-button {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+  }
+
+  .duration-badge {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+
+  .thumbnail-wrapper {
+    border-radius: 8px;
+  }
+}
+
+/* Mobile Large */
+@media (max-width: 600px) {
+  .content-wrapper {
+    padding: 12px 16px;
+  }
+
+  .header {
+    padding: 12px 16px;
+  }
+
+  .header h1 {
+    font-size: 20px;
+  }
+
+  .video-row {
+    grid-template-columns: 130px 1fr;
+    gap: 12px;
+    padding: 10px;
+    margin-bottom: 12px;
+  }
+
+  .video-title {
+    font-size: 12px;
+    line-height: 1.3;
+  }
+
+  .metadata {
+    font-size: 20px;
+  }
+
+  .channel-name {
+    font-size: 10px;
+  }
+
+  .video-stats {
+    font-size: 10px;
+  }
+
+  .stat-dot {
+    width: 3px;
+    height: 3px;
+  }
+
+  .more-options {
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+    padding: 4px;
+  }
+
+  .play-button {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .duration-badge {
+    font-size: 10px;
+    padding: 3px 6px;
+    bottom: 8px;
+    right: 8px;
+  }
+
+  .title-section {
+    margin-bottom: 12px;
+    gap: 8px;
+  }
+
+  .thumbnail-wrapper {
+    border-radius: 8px;
+  }
+
+  .video-row:hover {
+    transform: translateY(-1px);
+  }
+}
+
+/* Mobile Small */
+@media (max-width: 480px) {
+  .content-wrapper {
+    padding: 10px 12px;
+  }
+
+  .header {
+    padding: 10px 12px;
+  }
+
+  .header h1 {
+    font-size: 18px;
+  }
+
+  .video-row {
+    grid-template-columns: 110px 1fr;
+    gap: 10px;
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+
+  .video-title {
+    font-size: 11px;
+  }
+
+  .play-button {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .empty-state {
+    padding: 60px 20px;
+  }
+
+  .empty-icon {
+    font-size: 60px;
+    margin-bottom: 16px;
+  }
+
+  .empty-text {
+    font-size: 18px;
+  }
+
+  .empty-subtext {
+    font-size: 14px;
+  }
+}

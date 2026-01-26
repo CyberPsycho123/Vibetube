@@ -1,0 +1,539 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #f9f9f9;
+  color: #030303;
+}
+
+.nv-container {
+  width: 100%;
+  background: #f9f9f9;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.nv-header {
+  padding: 32px 40px;
+  background: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.nv-header h1 {
+  font-size: 32px;
+  font-weight: 600;
+  color: #030303;
+  letter-spacing: -0.5px;
+}
+
+.nv-content-wrapper {
+  padding: 32px 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.nv-empty-state {
+  text-align: center;
+  background: #fff;
+  border-radius: 12px;
+  padding: 80px 60px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  max-width: 600px;
+  width: 100%;
+}
+
+.nv-empty-icon {
+  font-size: 120px;
+  margin-bottom: 32px;
+  opacity: 0.8;
+  animation: nv-float 3s ease-in-out infinite;
+}
+
+@keyframes nv-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.nv-empty-text {
+  font-size: 32px;
+  color: #030303;
+  margin-bottom: 16px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.nv-empty-subtext {
+  font-size: 16px;
+  color: #606060;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.nv-empty-description {
+  font-size: 14px;
+  color: #909090;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.nv-action-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nv-btn {
+  padding: 12px 32px;
+  border: none;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: capitalize;
+}
+
+.nv-btn-primary {
+  background: #065fd4;
+  color: white;
+}
+
+.nv-btn-primary:hover {
+  background: #0a47a8;
+  box-shadow: 0 4px 12px rgba(6, 95, 212, 0.3);
+  transform: translateY(-2px);
+}
+
+.nv-btn-secondary {
+  background: #f2f2f2;
+  color: #030303;
+  border: 1px solid #e5e5e5;
+}
+
+.nv-btn-secondary:hover {
+  background: #e8e8e8;
+  border-color: #d0d0d0;
+  transform: translateY(-2px);
+}
+
+.nv-suggestions-section {
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid #e5e5e5;
+  width: 100%;
+}
+
+.nv-suggestions-title {
+  font-size: 18px;
+  color: #030303;
+  font-weight: 600;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.nv-suggestions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  width: 100%;
+}
+
+.nv-suggestion-card {
+  padding: 16px;
+  background: #f9f9f9;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.nv-suggestion-card:hover {
+  border-color: #065fd4;
+  box-shadow: 0 2px 8px rgba(6, 95, 212, 0.1);
+  transform: translateY(-2px);
+}
+
+.nv-suggestion-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.nv-suggestion-text {
+  font-size: 13px;
+  color: #030303;
+  font-weight: 500;
+}
+
+/* Large Desktop */
+@media (max-width: 1600px) {
+  .nv-header {
+    padding: 28px 36px;
+  }
+
+  .nv-header h1 {
+    font-size: 28px;
+  }
+
+  .nv-content-wrapper {
+    padding: 28px 36px;
+  }
+
+  .nv-empty-state {
+    padding: 70px 50px;
+  }
+
+  .nv-empty-text {
+    font-size: 28px;
+  }
+}
+
+/* Desktop */
+@media (max-width: 1200px) {
+  .nv-header {
+    padding: 24px 32px;
+  }
+
+  .nv-header h1 {
+    font-size: 26px;
+  }
+
+  .nv-content-wrapper {
+    padding: 24px 32px;
+  }
+
+  .nv-empty-state {
+    padding: 60px 40px;
+    max-width: 500px;
+  }
+
+  .nv-empty-text {
+    font-size: 26px;
+    margin-bottom: 14px;
+  }
+
+  .nv-empty-subtext {
+    font-size: 15px;
+    margin-bottom: 28px;
+  }
+
+  .nv-empty-icon {
+    font-size: 100px;
+    margin-bottom: 28px;
+  }
+
+  .nv-suggestions-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+  }
+}
+
+/* Tablet Large */
+@media (max-width: 992px) {
+  .nv-header {
+    padding: 20px 28px;
+  }
+
+  .nv-header h1 {
+    font-size: 24px;
+  }
+
+  .nv-content-wrapper {
+    padding: 20px 28px;
+  }
+
+  .nv-empty-state {
+    padding: 50px 36px;
+    max-width: 450px;
+  }
+
+  .nv-empty-text {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  .nv-empty-subtext {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .nv-empty-description {
+    font-size: 13px;
+    margin-bottom: 32px;
+  }
+
+  .nv-empty-icon {
+    font-size: 90px;
+    margin-bottom: 24px;
+  }
+
+  .nv-btn {
+    padding: 10px 28px;
+    font-size: 13px;
+  }
+
+  .nv-suggestions-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+  }
+
+  .nv-suggestion-card {
+    padding: 12px;
+  }
+
+  .nv-suggestion-icon {
+    font-size: 28px;
+  }
+
+  .nv-suggestion-text {
+    font-size: 12px;
+  }
+}
+
+/* Tablet Medium */
+@media (max-width: 768px) {
+  .nv-header {
+    padding: 16px 20px;
+  }
+
+  .nv-header h1 {
+    font-size: 22px;
+  }
+
+  .nv-content-wrapper {
+    padding: 16px 20px;
+  }
+
+  .nv-empty-state {
+    padding: 40px 30px;
+    max-width: 400px;
+    border-radius: 10px;
+  }
+
+  .nv-empty-text {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .nv-empty-subtext {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
+  .nv-empty-description {
+    font-size: 12px;
+    margin-bottom: 24px;
+  }
+
+  .nv-empty-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+  }
+
+  .nv-btn {
+    padding: 9px 24px;
+    font-size: 12px;
+  }
+
+  .nv-action-buttons {
+    gap: 12px;
+  }
+
+  .nv-suggestions-section {
+    margin-top: 40px;
+    padding-top: 30px;
+  }
+
+  .nv-suggestions-title {
+    font-size: 16px;
+    margin-bottom: 18px;
+  }
+
+  .nv-suggestions-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+  }
+
+  .nv-suggestion-card {
+    padding: 10px;
+    border-radius: 6px;
+  }
+
+  .nv-suggestion-icon {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  .nv-suggestion-text {
+    font-size: 11px;
+  }
+}
+
+/* Mobile Large */
+@media (max-width: 600px) {
+  .nv-header {
+    padding: 12px 16px;
+  }
+
+  .nv-header h1 {
+    font-size: 20px;
+  }
+
+  .nv-content-wrapper {
+    padding: 12px 16px;
+  }
+
+  .nv-empty-state {
+    padding: 30px 24px;
+    max-width: 100%;
+    border-radius: 8px;
+  }
+
+  .nv-empty-text {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .nv-empty-subtext {
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+
+  .nv-empty-description {
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+
+  .nv-empty-icon {
+    font-size: 70px;
+    margin-bottom: 16px;
+  }
+
+  .nv-btn {
+    padding: 8px 20px;
+    font-size: 11px;
+  }
+
+  .nv-action-buttons {
+    gap: 10px;
+  }
+
+  .nv-suggestions-section {
+    margin-top: 30px;
+    padding-top: 24px;
+  }
+
+  .nv-suggestions-title {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+
+  .nv-suggestions-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .nv-suggestion-card {
+    padding: 12px;
+  }
+
+  .nv-suggestion-icon {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  .nv-suggestion-text {
+    font-size: 11px;
+  }
+}
+
+/* Mobile Small */
+@media (max-width: 480px) {
+  .nv-header {
+    padding: 10px 12px;
+  }
+
+  .nv-header h1 {
+    font-size: 18px;
+  }
+
+  .nv-content-wrapper {
+    padding: 10px 12px;
+  }
+
+  .nv-empty-state {
+    padding: 24px 16px;
+  }
+
+  .nv-empty-text {
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+
+  .nv-empty-subtext {
+    font-size: 12px;
+    margin-bottom: 14px;
+  }
+
+  .nv-empty-description {
+    font-size: 11px;
+    margin-bottom: 16px;
+  }
+
+  .nv-empty-icon {
+    font-size: 60px;
+    margin-bottom: 12px;
+  }
+
+  .nv-btn {
+    padding: 8px 18px;
+    font-size: 10px;
+  }
+
+  .nv-action-buttons {
+    gap: 8px;
+  }
+
+  .nv-suggestions-section {
+    margin-top: 20px;
+    padding-top: 16px;
+  }
+
+  .nv-suggestions-title {
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+
+  .nv-suggestions-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .nv-suggestion-card {
+    padding: 10px;
+  }
+
+  .nv-suggestion-icon {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+
+  .nv-suggestion-text {
+    font-size: 10px;
+  }
+}
