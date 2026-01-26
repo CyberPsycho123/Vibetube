@@ -456,7 +456,7 @@ app.post('/login', async (req, res) => {
   const oauth2Client = new google.auth.OAuth2(
     process.env.CLIENT_ID,
     process.env.CLIENT_SECRET,
-    "https://vibetube-backend.onrender.com/auth/google/callback"
+    "postmessage"
   );
   const googleres = await oauth2Client.getToken(code)
   oauth2Client.setCredentials(googleres.tokens)
