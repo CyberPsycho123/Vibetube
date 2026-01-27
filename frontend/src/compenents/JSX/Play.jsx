@@ -426,7 +426,11 @@ export default function Play({ videos }) {
                 <div className="video-description-section">
                     <div className="description-header">
                         <div className="description-meta">
-                            <span className="upload-date">{timeAgo(parseDMY(video_date))}</span>
+                            {video_date && (
+                                <span className="upload-date">
+                                    {timeAgo(parseDMY(video_date))}
+                                </span>
+                            )}
                         </div>
                     </div>
 
