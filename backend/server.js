@@ -310,12 +310,13 @@ app.post('/readsubscribe', async (req, res) => {
 })
 
 app.post('/readlikes', async (req, res) => {
+  const email = req.cookies.email
   const { chanel, id } = req.body
   const videos = await Videos.findOne({ _id: id, channel: chanel })
   if (!videos) return res.json({ success: false })
 
   const likes = videos.like
-  const buttons = await Buttons.findOne({ video: id, channel: chanel })
+  const buttons = await Buttons.findOne({ video: id, channel: chanel,email:email })
 
   if (buttons) {
     const liked = buttons.liked
