@@ -479,8 +479,20 @@ app.post('/login', async (req, res) => {
     const make_channel = new Channels({ email: email, channel: name, logo: picture, subscribers: "0" })
     make_channel.save()
     const token = jwt.sign({ email: email }, secretKey, { expiresIn: '7d' });
-    res.cookie("token", token, { maxAge: 1000 * 60 * 60 * 24 * 7, httpOnly: true, secure: true, sameSite: "none" });
-    res.cookie("email", email, { maxAge: 1000 * 60 * 60 * 24 * 7, httpOnly: true, secure: true, sameSite: "none" });
+    res.cookie("token", token, {
+      maxAge: 1000 * 60 * 60 * 24 * 7,
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
+      path: "/"
+    });
+    res.cookie("email", email, {
+      maxAge: 1000 * 60 * 60 * 24 * 7,
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
+      path: "/"
+    });
     res.json({ success: true })
   }
 })
