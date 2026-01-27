@@ -292,25 +292,17 @@ app.post('/readsubscribe', async (req, res) => {
 app.post('/readlikes', async (req, res) => {
   const { chanel, id } = req.body
   const videos = await Videos.findOne({ _id: id, channel: chanel })
-  if (videos) {
-    const buttons = await Buttons.findOne({ video: id, channel: chanel })
-    if (buttons) {
-      const likes = videos.like
-      const liked = buttons.liked
+  if (!videos) return res.json({ success: false })
 
-      if (liked == "yes") {
-        res.json({ success: true, click: true, like: likes })
-      }
-      else {
-        res.json({ success: true, click: false, like: likes })
-      }
-    }
-    else {
-      res.json({ success: true, click: false, like: likes })
-    }
+  const likes = videos.like
+  const buttons = await Buttons.findOne({ video: id, channel: chanel })
+
+  if (buttons) {
+    const liked = buttons.liked
+    res.json({ success: true, click: liked === "yes", like: likes })
+  } else {
+    res.json({ success: true, click: false, like: likes })
   }
-
-
 })
 
 app.post('/like', async (req, res) => {
