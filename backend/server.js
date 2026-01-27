@@ -234,42 +234,62 @@ app.post('/channel', async (req, res) => {
 
 
 app.post('/subscribe', async (req, res) => {
-  const { chanel } = req.body
-  const email = req.cookies.email
+  try {
+    const { chanel } = req.body;
+    const email = req.cookies.email;
 
-  const check = await Buttons.findOne({ channel: chanel, email: email })
-  if (check) {
-    if (check.subscribed === "yes") {
-      await Buttons.updateOne({ channel: chanel, email: email }, { $set: { subscribed: "no" } })
+    if (!email) {
+      return res.status(401).json({ success: false, message: "Unauthorized" });
     }
-    else {
-      await Buttons.updateOne({ channel: chanel, email: email }, { $set: { subscribed: "yes" } })
-    }
-  }
-  else {
-    const subscribed = new Buttons({ email: email, channel: chanel, liked: "no", saved: "no", subscribed: "yes" })
-    await subscribed.save()
-  }
 
-  const check_subscribed = await Buttons.findOne({ channel: chanel, email: email })
+    // Find or create subscription button for this user
+    let button = await Buttons.findOne({ channel: chanel, email: email });
 
-  if (check_subscribed) {
-    const fetch_channel = await Channels.findOne({ channel: chanel, email: email })
-    let subscribers = parseInt(fetch_channel.subscribers)
-    if (check_subscribed.subscribed == "yes") {
-      subscribers += 1
+    if (button) {
+      // Toggle subscription
+      button.subscribed = button.subscribed === "yes" ? "no" : "yes";
+      await button.save();
+    } else {
+      // Create new subscription
+      button = new Buttons({
+        email: email,
+        channel: chanel,
+        liked: "no",
+        saved: "no",
+        subscribed: "yes"
+      });
+      await button.save();
     }
-    else {
-      subscribers -= 1
+
+    // Fetch the channel's owner document
+    const fetch_channel = await Channels.findOne({ channel: chanel });
+
+    if (!fetch_channel) {
+      console.error(`Channel not found: ${chanel}`);
+      return res.status(404).json({ success: false, message: "Channel not found" });
     }
-    let str_sub = String(subscribers)
-    await Channels.updateOne({ channel: chanel, email: email }, { $set: { subscribers: str_sub } })
-    res.json({ success: true })
+
+    // Safely parse subscribers count
+    let subscribers = parseInt(fetch_channel.subscribers || "0");
+
+    // Increment or decrement based on new subscription status
+    if (button.subscribed === "yes") {
+      subscribers += 1;
+    } else {
+      subscribers = Math.max(0, subscribers - 1); // prevent negative subscribers
+    }
+
+    // Update channel's subscriber count
+    fetch_channel.subscribers = String(subscribers);
+    await fetch_channel.save();
+
+    res.json({ success: true, subscribed: button.subscribed === "yes", subscribers: subscribers });
+
+  } catch (err) {
+    console.error("SUBSCRIBE ERROR:", err);
+    res.status(500).json({ success: false, message: "Server error" });
   }
-  else {
-    res.json({ success: false })
-  }
-})
+});
 
 app.post('/readsubscribe', async (req, res) => {
   const email = req.cookies.email
