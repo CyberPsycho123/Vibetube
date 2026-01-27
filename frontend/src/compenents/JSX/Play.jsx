@@ -265,15 +265,11 @@ export default function Play({ videos }) {
     useEffect(() => {
         if (!channelName || !id) return;
 
-        async function channels() {
-            await channel()
-            await read_subscribe()
-            await read_saved()
-            await read_user_like()
-
-        }
-        channels()
-    }, [id, channelName, chaninfo])
+        channel()
+        read_subscribe()
+        read_saved()
+        read_user_like()
+    }, [id, channelName,chaninfo])
 
 
     return (

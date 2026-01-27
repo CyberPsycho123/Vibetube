@@ -28,7 +28,7 @@ app.use(cors({
   origin: "https://vibetube-omega.vercel.app",
   credentials: true
 }))
-
+app.set("trust proxy", 1);
 app.use(express.json());
 app.use(cookieParser());
 
@@ -504,15 +504,21 @@ app.post('/loged', async (req, res) => {
 
 app.post('/logout', (req, res) => {
   res.clearCookie("token", {
+    httpOnly: true,
     secure: true,
-    sameSite: "none"
-  });
-  res.clearCookie("email", {
-    secure: true,
-    sameSite: "none"
+    sameSite: "none",
+    path: "/"
   });
 
-  res.json({ message: "Logged out" });
+  // OPTIONAL: only if you still keep email cookie
+  res.clearCookie("email", {
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
+    path: "/"
+  });
+
+  res.json({ success: true });
 });
 
 app.post('/admin', async (req, res) => {
