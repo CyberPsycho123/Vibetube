@@ -29,7 +29,7 @@
 
 | Layer            | Technology                        |
 |------------------|-----------------------------------|
-| Frontend         | HTML, CSS, JavaScript             |
+| Frontend         | React.js, CSS3                    |
 | Backend          | Node.js, Express.js               |
 | Database         | MongoDB Atlas (Mongoose)          |
 | Authentication   | Google OAuth 2.0 + JWT (cookies)  |
