@@ -36,7 +36,7 @@
 | File Storage     | Cloudinary (videos & images)      |
 | Video Processing | FFmpeg (fluent-ffmpeg)            |
 | File Uploads     | Multer + multer-storage-cloudinary|
-| Hosting          | Vercel                            |
+| Hosting          | Vercel,Render                     |
 
 ---
 
