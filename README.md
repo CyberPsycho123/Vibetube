@@ -10,7 +10,7 @@
 
 ## 🚀 Features
 
-- 🎬 **Watch Videos** — Browse and stream videos uploaded by creators on the platform
+- 🎬 **Watch Videos** — Browse videos uploaded by creators on the platform
 - 📡 **Create a Channel** — Register your own channel and become a creator in seconds
 - 📤 **Upload Videos** — Share your content with the Vibetube community via your channel
 - 👤 **Creator & Viewer Roles** — Seamlessly use the platform as both a viewer and a content creator
